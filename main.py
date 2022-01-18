@@ -3,9 +3,9 @@ import filters
 
 result = english_words_set
 
-right_place = [["e", 4], ["s", 0], ["h", 1]]
-wrong_place = []
-wrong = ["c", "l", "o", "v", "a", "d"]
+right_place = [["p", 0]]
+wrong_place = [["p", 3], ["p", 1], ["o", 0], ["o", 1]]
+wrong = ["s", "l", "e", "t", "i", "u", "m", "a", "c", "h"]
 
 result = filters.word_length_filter(result, 5)
 
@@ -17,6 +17,8 @@ for letter, idx in wrong_place:
 
 for letter, idx in right_place:
     result = filters.word_letter_right_place(result, letter, idx)
+
+result = filters.sort_by_diversity(result)
 
 print(result)
 

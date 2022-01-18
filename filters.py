@@ -1,3 +1,4 @@
+from more_itertools import sort_together
 
 def word_length_filter(words, desired_length):
     filtered_words = []
@@ -26,3 +27,11 @@ def word_wrong_letter(words, wrong_letter):
         if wrong_letter not in word:
             filtered_words.append(word)
     return filtered_words
+
+def sort_by_diversity(words):
+    unique_letters = []
+    for word in words:
+        unique_letters.append(len(set(word)))
+    result = list(sort_together([unique_letters, words])[1])
+    result.reverse()
+    return result
